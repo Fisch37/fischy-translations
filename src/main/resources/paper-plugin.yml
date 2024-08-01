@@ -1,0 +1,5 @@
+name: FischyTranslations
+version: '1.0-SNAPSHOT'
+main: de.fisch37.fischyTranslations.FischyTranslations
+api-version: '1.21'
+authors: [ Fisch37 ]
