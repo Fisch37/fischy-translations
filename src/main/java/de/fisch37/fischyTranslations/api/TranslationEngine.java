@@ -1,13 +1,14 @@
 package de.fisch37.fischyTranslations.api;
 
-import de.fisch37.fischyTranslations.FischyTranslations;
 import net.kyori.adventure.text.Component;
+import org.jetbrains.annotations.NotNull;
 
 @FunctionalInterface
-public interface TranslationEngine {
-    default void initialize(FischyTranslations plugin) { }
-
-    default void dispose() { }
-
+public interface TranslationEngine extends BaseTranslationEngine {
     Component translate(TranslationTask task);
+
+    record TranslationTask(
+            @NotNull Component input,
+            @NotNull Language language
+    ) { }
 }

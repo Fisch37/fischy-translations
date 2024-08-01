@@ -2,7 +2,6 @@ package de.fisch37.fischyTranslations;
 
 import de.fisch37.fischyTranslations.api.Language;
 import de.fisch37.fischyTranslations.api.TranslationEngine;
-import de.fisch37.fischyTranslations.api.TranslationTask;
 import io.papermc.paper.chat.ChatRenderer;
 import io.papermc.paper.event.player.AsyncChatEvent;
 import net.kyori.adventure.audience.Audience;
@@ -39,6 +38,6 @@ public class ChatEventHandler implements Listener, ChatRenderer {
         if (language == null)
             return message;
         else
-            return engine.translate(new TranslationTask(message, language));
+            return engine.translate(new TranslationEngine.TranslationTask(message, language));
     }
 }
