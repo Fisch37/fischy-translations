@@ -1,6 +1,7 @@
 package de.fisch37.fischyTranslations;
 
 import de.fisch37.fischyTranslations.api.TranslationEngine;
+import de.fisch37.fischyTranslations.engines.LectoEngine;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
@@ -20,7 +21,12 @@ public final class FischyTranslations extends JavaPlugin {
         saveDefaultConfig();
         registerListener(new ServerStartListener());
 
-
+        registerListener(new Listener() {
+            @EventHandler
+            public void onEngineRegistrationEvent(EngineRegistrationEvent event) {
+                event.getRegistry().register("lecto", new LectoEngine());
+            }
+        });
     }
 
     @Override
